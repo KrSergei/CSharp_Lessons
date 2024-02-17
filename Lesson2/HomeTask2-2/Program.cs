@@ -1,8 +1,7 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-/// TASK-1: --- Программа бесконечно запрашивает целые числа с консоли. Программа завершается при вводе символа ‘q’ или при вводе числа, сумма цифр которого чётная.
+﻿/// TASK-1: --- Программа бесконечно запрашивает целые числа с консоли. Программа завершается при вводе символа ‘q’ или при вводе числа, сумма цифр которого чётная.
 /// TASK-2: --- Массив заполненный случайными трёхзначными числами. Программа показывает количество чётных чисел в массиве.
 /// NASK-3: --- Программа перевернёт одномерный массив (первый элемент станет последним, второй – предпоследним и т.д.)
+#region GENERAL FUNCTIONS
 void Main()
 {
     /// <-------------- TASK1 -------------->    
@@ -20,6 +19,7 @@ void Main()
         if (isCanContinue) PrintToConsole("Sum numbers = " + sum);
         else PrintToConsole("You are enter q or sum numbers is a entered number is a even");
     }
+
     /// <-------------- TASK2 -------------->
     int[] randomNumbers = new int[10];
     int countEvenNumbers = 0;
@@ -27,7 +27,24 @@ void Main()
     countEvenNumbers = CountEvenNumbers(randomNumbers);
     PrintArrayToConsole(randomNumbers);
     PrintToConsole(countEvenNumbers.ToString());
+
+    /// <-------------- TASK3 -------------->
+    int[] arrayReverse = new int[randomNumbers.Length];
+    arrayReverse = ReverseArray(randomNumbers);
+     PrintArrayToConsole(arrayReverse);
 }
+void PrintToConsole(string msg)
+{
+    Console.WriteLine("\n" + msg);
+}
+void PrintArrayToConsole(int[] array){
+    foreach(int item in array){
+        Console.Write($"{item} ");
+    }
+}
+Main();
+#endregion
+
 #region TASK1
 string EnterNumber()
 {   
@@ -68,8 +85,8 @@ int SumNumbers(int[] numbersArray) {
     return sum;
 }
 #endregion
-#region TASK2
 
+#region TASK2
 int[] CreateArray(int lengthArray){
     Random rnd = new Random();
     int[] array = new int[lengthArray];
@@ -87,14 +104,8 @@ int  CountEvenNumbers(int[] array){
 }
 #endregion
 
-void PrintToConsole(string msg)
-{
-    Console.WriteLine("\n" + msg);
+#region TASK3
+int[] ReverseArray(int[] array){
+  return Enumerable.Reverse(array).ToArray();
 }
-
-void PrintArrayToConsole(int[] array){
-    foreach(int item in array){
-        Console.Write($"{item} ");
-    }
-}
-Main();
+#endregion
