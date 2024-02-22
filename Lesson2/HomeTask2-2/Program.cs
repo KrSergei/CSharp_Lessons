@@ -33,11 +33,11 @@ void Main()
     arrayReverse = ReverseArray(randomNumbers);
      PrintArrayToConsole(arrayReverse);
 }
-void PrintToConsole(string msg)
+    void PrintToConsole(string msg)
 {
     Console.WriteLine("\n" + msg);
 }
-void PrintArrayToConsole(int[] array){
+    void PrintArrayToConsole(int[] array){
     foreach(int item in array){
         Console.Write($"{item} ");
     }

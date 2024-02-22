@@ -40,3 +40,6 @@ void PrintArray(int[] array){
 }
 
 Main();
+
+int[,] matrix = new int[5,5];
+matrix.GetLength(0);
